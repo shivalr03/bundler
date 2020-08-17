@@ -1,0 +1,99 @@
+$brandGrey: #757780;
+$brandBlack: #001011;
+$brandYellow: #E7D46A;
+$brandWhite: #FFFFFC;
+$brandGreen: #98CE00;
+
+$error: #e95252;
+$fontPlayfair: 'Playfair Display', serif;
+$fontPoppin: 'Poppins', sans-serif;
+
+$transition300: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+$transition800: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+$transition600: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+$transition600-1: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+$transition800-1: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+$transition1200: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == small-phone {
+      @media only screen and (max-width: 19.938em) {
+        @content;
+      } //600px
+    }
+    @if $breakpoint == phone {
+      @media only screen and (max-width: 26.5625em) {
+        @content;
+      } //600px
+    }
+    @if $breakpoint == tab-port {
+      @media only screen and (max-width: 56.25em) {
+        @content;
+      } //900px
+    }
+    @if $breakpoint == tab-land {
+      @media only screen and (max-width: 75em) {
+        @content;
+      } //1200px
+    }
+    @if $breakpoint == mid-desktop {
+      @media only screen and (min-width: 75.0625em) and (max-width: 112.4375em) {
+        @content;
+      } //1800
+    }
+    @if $breakpoint == big-desktop {
+      @media only screen and (min-width: 112.5em) {
+        @content;
+      } //1800
+    }
+  }
+#wrapper,
+body {
+  overflow-x: hidden !important;
+  // font-size: 10px;
+}
+html {
+  scroll-behavior: smooth;
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+  @include respond(big-desktop) {
+    font-size: 85%; //1rem = 12, 12/16
+  }
+}
+@mixin heading {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 7rem;
+}
+@mixin subhead-one {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 4rem;
+}
+@mixin subhead-two {
+  font-size: 1.9rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+  line-height: 2.8rem;
+}
+@mixin content {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
+
+@mixin fontRender($color, $size, $weight, $lineHeight) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}

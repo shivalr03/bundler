@@ -1,2 +1,105 @@
-$light: teal;
 @import '~bootstrap/scss/bootstrap';
+@import '_root.scss';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+body{
+    position: relative;
+    font-family: $fontPoppin;
+}
+header{
+    width: 100%;
+    background-color: $brandBlack;
+    .navbar{
+        padding: 2rem 10%;
+        width: 100%;
+        max-width: 144rem;
+        margin: 0 auto;
+        @include fontRender($brandWhite, 1.6rem,600, 0);
+        .navbar-brand{
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-self: center;
+            margin-right: 2rem;
+            @include fontRender($brandWhite, 1.6rem,400, 0);
+            .logo{
+                max-width: 3rem;
+                align-self: center;
+                margin-bottom: 1rem;
+            }
+            span{
+                padding-top: 1rem;
+                display: block;
+            }
+        }
+        .navbar-nav{
+            .nav-link{
+                @include fontRender($brandWhite, 1.6rem,400, 0); 
+                margin-right: 2rem;
+            }
+        }
+        .navbar-collapse{
+            justify-content: flex-end;
+        }
+    }
+}
+main{
+    .banner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: $brandBlack;
+        position: relative;
+        height: 85vh;
+        overflow: hidden;
+        .particlejs{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            h1{
+                @include fontRender($brandWhite, 6rem,700, 1.4);
+                font-family: $fontPlayfair;
+            }
+            .cta{
+                @include fontRender($brandYellow, 1.6rem,400, 0);
+                align-self: center;
+                border-radius: 0.4rem;
+                border: 1px solid $brandYellow;
+                padding: 3rem 3rem;
+                margin-top: 2rem;
+                transition: all .3s ease-in-out;
+                text-decoration: none;
+                font-weight: 600;
+                &:hover{
+                    background-color: $brandYellow;
+                    color: $brandBlack;
+                    text-decoration: none;
+                    
+                }
+                
+            }
+        }
+       
+    }
+    .about{
+        width: 100%;
+        padding: 6rem 10%;
+        max-width: 144rem;
+        margin: 0 auto;
+        background-color: $brandWhite;
+        .section-title{
+            @include fontRender($brandYellow, 4rem,700, 1.4);
+            font-family: $fontPlayfair;
+        }
+        .content{
+            @include fontRender($brandBlack, 1.6rem,400, 1.4);
+        }
+    }
+}
+footer{}
